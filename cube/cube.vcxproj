@@ -178,47 +178,47 @@ xcopy "$(ProjectDir)lunarg.pfm" "$(OutDir)" /Y</Command>
   <ItemGroup>
     <CustomBuild Include="PSBasePass.hlsl">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(VK_SDK_PATH)\Bin\glslangValidator.exe" -V -D -S frag -e "main" -o "$(OutDir)%(Filename).spv" "$(ProjectDir)%(Filename).hlsl"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(ProjectDir)glslangValidator.exe" -V -D -S frag -e "main" -o "$(OutDir)%(Filename).spv" "$(ProjectDir)%(Filename).hlsl"</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OutDir)%(Filename).spv</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(VK_SDK_PATH)\Bin\glslangValidator.exe" -V -D -S frag -e "main" -o "$(OutDir)%(Filename).spv" "$(ProjectDir)%(Filename).hlsl"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(ProjectDir)glslangValidator.exe" -V -D -S frag -e "main" -o "$(OutDir)%(Filename).spv" "$(ProjectDir)%(Filename).hlsl"</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)%(Filename).spv</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(VK_SDK_PATH)\Bin\glslangValidator.exe" -V -D -S frag -e "main" -o "$(OutDir)%(Filename).spv" "$(ProjectDir)%(Filename).hlsl"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(ProjectDir)glslangValidator.exe" -V -D -S frag -e "main" -o "$(OutDir)%(Filename).spv" "$(ProjectDir)%(Filename).hlsl"</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OutDir)%(Filename).spv</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(VK_SDK_PATH)\Bin\glslangValidator.exe" -V -D -S frag -e "main" -o "$(OutDir)%(Filename).spv" "$(ProjectDir)%(Filename).hlsl"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)glslangValidator.exe" -V -D -S frag -e "main" -o "$(OutDir)%(Filename).spv" "$(ProjectDir)%(Filename).hlsl"</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutDir)%(Filename).spv</Outputs>
     </CustomBuild>
     <CustomBuild Include="VSBasePass.hlsl">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(VK_SDK_PATH)\Bin\glslangValidator.exe" -V -D -S vert -e "main" -o "$(OutDir)%(Filename).spv" "$(ProjectDir)%(Filename).hlsl"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(ProjectDir)glslangValidator.exe" -V -D -S vert -e "main" -o "$(OutDir)%(Filename).spv" "$(ProjectDir)%(Filename).hlsl"</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OutDir)%(Filename).spv</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(VK_SDK_PATH)\Bin\glslangValidator.exe" -H -D -S vert -e "main" -o "$(OutDir)%(Filename).spv" "$(ProjectDir)%(Filename).hlsl"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(ProjectDir)glslangValidator.exe" -V -D -S vert -e "main" -o "$(OutDir)%(Filename).spv" "$(ProjectDir)%(Filename).hlsl"</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)%(Filename).spv</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(VK_SDK_PATH)\Bin\glslangValidator.exe" -V -D -S vert -e "main" -o "$(OutDir)%(Filename).spv" "$(ProjectDir)%(Filename).hlsl"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(ProjectDir)glslangValidator.exe" -V -D -S vert -e "main" -o "$(OutDir)%(Filename).spv" "$(ProjectDir)%(Filename).hlsl"</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OutDir)%(Filename).spv</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(VK_SDK_PATH)\Bin\glslangValidator.exe" -H -D -S vert -e "main" -o "$(OutDir)%(Filename).spv" "$(ProjectDir)%(Filename).hlsl"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)glslangValidator.exe" -V -D -S vert -e "main" -o "$(OutDir)%(Filename).spv" "$(ProjectDir)%(Filename).hlsl"</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutDir)%(Filename).spv</Outputs>
     </CustomBuild>
     <CustomBuild Include="PSIlluminate.hlsl">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(VK_SDK_PATH)\Bin\glslangValidator.exe" -V -D -S frag -e "main" -o "$(OutDir)%(Filename).spv" "$(ProjectDir)%(Filename).hlsl"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(ProjectDir)glslangValidator.exe" -V -D -S frag -e "main" -o "$(OutDir)%(Filename).spv" "$(ProjectDir)%(Filename).hlsl"</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OutDir)%(Filename).spv</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(VK_SDK_PATH)\Bin\glslangValidator.exe" -V -D -S frag -e "main" -o "$(OutDir)%(Filename).spv" "$(ProjectDir)%(Filename).hlsl"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(ProjectDir)glslangValidator.exe" -V -D -S frag -e "main" -o "$(OutDir)%(Filename).spv" "$(ProjectDir)%(Filename).hlsl"</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)%(Filename).spv</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(VK_SDK_PATH)\Bin\glslangValidator.exe" -V -D -S frag -e "main" -o "$(OutDir)%(Filename).spv" "$(ProjectDir)%(Filename).hlsl"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(ProjectDir)glslangValidator.exe" -V -D -S frag -e "main" -o "$(OutDir)%(Filename).spv" "$(ProjectDir)%(Filename).hlsl"</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OutDir)%(Filename).spv</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(VK_SDK_PATH)\Bin\glslangValidator.exe" -V -D -S frag -e "main" -o "$(OutDir)%(Filename).spv" "$(ProjectDir)%(Filename).hlsl"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)glslangValidator.exe" -V -D -S frag -e "main" -o "$(OutDir)%(Filename).spv" "$(ProjectDir)%(Filename).hlsl"</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutDir)%(Filename).spv</Outputs>
     </CustomBuild>
     <None Include="lunarg.ppm" />
     <CustomBuild Include="VSSSQuad.hlsl">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(VK_SDK_PATH)\Bin\glslangValidator.exe" -V -D -S vert -e "main" -o "$(OutDir)%(Filename).spv" "$(ProjectDir)%(Filename).hlsl"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(ProjectDir)glslangValidator.exe" -V -D -S vert -e "main" -o "$(OutDir)%(Filename).spv" "$(ProjectDir)%(Filename).hlsl"</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OutDir)%(Filename).spv</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(VK_SDK_PATH)\Bin\glslangValidator.exe" -H -D -S vert -e "main" -o "$(OutDir)%(Filename).spv" "$(ProjectDir)%(Filename).hlsl"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(ProjectDir)glslangValidator.exe" -V -D -S vert -e "main" -o "$(OutDir)%(Filename).spv" "$(ProjectDir)%(Filename).hlsl"</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)%(Filename).spv</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(VK_SDK_PATH)\Bin\glslangValidator.exe" -V -D -S vert -e "main" -o "$(OutDir)%(Filename).spv" "$(ProjectDir)%(Filename).hlsl"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(ProjectDir)glslangValidator.exe" -V -D -S vert -e "main" -o "$(OutDir)%(Filename).spv" "$(ProjectDir)%(Filename).hlsl"</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OutDir)%(Filename).spv</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(VK_SDK_PATH)\Bin\glslangValidator.exe" -H -D -S vert -e "main" -o "$(OutDir)%(Filename).spv" "$(ProjectDir)%(Filename).hlsl"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)glslangValidator.exe" -V -D -S vert -e "main" -o "$(OutDir)%(Filename).spv" "$(ProjectDir)%(Filename).hlsl"</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutDir)%(Filename).spv</Outputs>
     </CustomBuild>
   </ItemGroup>
