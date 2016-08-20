@@ -2,17 +2,28 @@
 // By S. XU Tianchen
 //--------------------------------------------------------------------------------------
 
+#if 0
 cbuffer cbPerframe : register(b0)
 {
 	float4 g_vLightPos;
 	float4 g_vEyePos;
 };
+#else
+// This is wrong in HLSL, but glslang currently only support this style
+cbuffer cbPerframe
+{
+	float4 vLightPos;
+	float4 vEyePos;
+} CBPerF : register(b0);
+#define g_vLightPos	CBPerF.vLightPos
+#define g_vEyePos	CBPerF.vEyePos
+#endif
 
 SamplerState	g_smpLinear		: register(s1);
 Texture2D		g_txDiffuse		: register(t2);
 Texture2D		g_txNormal		: register(t3);
 
-void main(float2 Tex : location0,
+void main(float2 Tex : TEXCOORD,
 	out float4 Result : SV_TARGET)
 {
 	const float3 vUpDir = float3(0.0, 1.0, 0.0);

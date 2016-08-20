@@ -4,8 +4,8 @@
 
 struct PSIn
 {
-	float3 Nrm	: location0;
-	float2 Tex	: location1;
+	float3 Nrm	: NORMAL;
+	float2 Tex	: TEXCOORD;
 };
 
 SamplerState	g_smpLinear		: register(s1);
