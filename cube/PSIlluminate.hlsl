@@ -8,9 +8,9 @@ cbuffer cbPerframe : register(b0)
 	float4 g_vEyePos;
 };
 
-SamplerState	g_smpLinear		: register(s1);
-Texture2D		g_txDiffuse		: register(t2);
-Texture2D		g_txNormal		: register(t3);
+SamplerState	g_smpLinear		: register(s0, space1);
+Texture2D		g_txDiffuse		: register(t0, space2);
+Texture2D		g_txNormal		: register(t1, space2);
 
 void main(float2 Tex : TEXCOORD,
 	out float4 Result : SV_TARGET)

@@ -8,8 +8,8 @@ struct PSIn
 	float2 Tex	: TEXCOORD;
 };
 
-SamplerState	g_smpLinear		: register(s1);
-Texture2D		g_txDiffuse		: register(t2);
+SamplerState	g_smpLinear		: register(s0, space1);
+Texture2D		g_txDiffuse		: register(t0, space2);
 
 void main(PSIn input,
 	out float4 Results[2] : SV_TARGET)
