@@ -18,18 +18,19 @@ struct VSOut
 
 cbuffer cbMatrices : register(b0)
 {
-	float4x4 g_mWorldViewProj;
-	float4x4 g_mWorld;
-	float3x3 g_mWorldIT;
+	float4x4 g_worldViewProj;
+	float4x4 g_world;
+	float3x3 g_worldIT;
 };
 
-void main(VSIn input,
-	out float4 Pos	: SV_Position,
-	out float3 Nrm	: NORMAL,
-	out float2 Tex	: TEXCOORD) 
+VSOut main(VSIn input) 
 {
-	Nrm = normalize(mul(g_mWorldIT, input.Nrm));
-	Tex = input.Tex.xy;
+	VSOut output;
 
-	Pos = mul(g_mWorldViewProj, input.Pos);
+	output.Nrm = normalize(mul(g_worldIT, input.Nrm));
+	output.Tex = input.Tex.xy;
+
+	output.Pos = mul(g_worldViewProj, input.Pos);
+
+	return output;
 }

@@ -2,44 +2,51 @@
 // By S. XU Tianchen
 //--------------------------------------------------------------------------------------
 
-cbuffer cbPerframe : register(b0)
+struct PSIn
 {
-	float4 g_vLightPos;
-	float4 g_vEyePos;
+	float4 Pos : SV_Position;
+	float2 Tex : TEXCOORD;
 };
 
-SamplerState	g_smpLinear		: register(s0, space1);
-Texture2D		g_txDiffuse		: register(t0, space2);
-Texture2D		g_txNormal		: register(t1, space2);
-
-void main(float2 Tex : TEXCOORD,
-	out float4 Result : SV_TARGET)
+cbuffer cbPerframe : register(b0)
 {
-	const float3 vUpDir = float3(0.0, 1.0, 0.0);
-	const float4 vLight = 5.0.xxxx;
-	const float4 vAmbient = 1.2.xxxx;
+	float4 g_lightPos;
+	float4 g_eyePos;
+};
 
-	float4 vDiffuse = g_txDiffuse.Sample(g_smpLinear, Tex);
-	float4 vNorm = g_txNormal.Sample(g_smpLinear, Tex);
-	vNorm.xyz = vNorm.xyz * 2.0 - 1.0;
+SamplerState	g_smpLinear	: register(s0, space1);
+Texture2D		g_txDiffuse	: register(t0, space2);
+Texture2D		g_txNormal	: register(t1, space2);
 
-	//float3 vLightDir = normalize(g_vLightPos.xyz - wpos);
-	float3 vLightDir = normalize(g_vLightPos.xyz);
+float4 main(PSIn input) : SV_TARGET
+{
+	const float3 upDir = float3(0.0, 1.0, 0.0);
+	const float4 light = 5.0;
+	const float4 ambient = 1.2.xxxx;
 
-	float fLightAmt = saturate(dot(vNorm.xyz, vLightDir));
-	float fAmbientAmt = saturate(dot(vNorm.xyz, vUpDir) * 0.5 + 0.5);
-	float4 vLightColor = vLight * fLightAmt + vAmbient * fAmbientAmt;
+	float4 diffuse = g_txDiffuse.Sample(g_smpLinear, input.Tex);
+	float4 norm = g_txNormal.Sample(g_smpLinear, input.Tex);
+	norm.xyz = norm.xyz * 2.0 - 1.0;
 
-	//float3 vViewDir = normalize(g_vEyePos.xyz - WPos);
-	float3 vViewDir = normalize(g_vEyePos.xyz);
-	float3 vHalfAngle = normalize(vLightDir + vViewDir);
-	float fSpecAmt = saturate(dot(vNorm.xyz, vHalfAngle));
-	float4 vSpec = pow(fSpecAmt, 32.0) * 1.0;
+	//float3 lightDir = normalize(g_lightPos.xyz - wpos);
+	float3 lightDir = normalize(g_lightPos.xyz);
 
-	Result = vLightColor * vDiffuse + vSpec;
-	Result.w = vDiffuse.w;
+	float lightAmt = saturate(dot(norm.xyz, lightDir));
+	float ambientAmt = saturate(dot(norm.xyz, upDir) * 0.5 + 0.5);
+	float4 lightColor = light * lightAmt + ambient * ambientAmt;
+
+	//float3 viewDir = normalize(g_eyePos.xyz - WPos);
+	float3 viewDir = normalize(g_eyePos.xyz);
+	float3 halfAngle = normalize(lightDir + viewDir);
+	float specAmt = saturate(dot(norm.xyz, halfAngle));
+	float4 spec = pow(specAmt, 32.0) * 1.0;
+
+	float4 result = lightColor * diffuse + spec;
+	result.w = diffuse.w;
 	
 	// Simple tone mapping
-	Result.xyz /= Result.xyz + 1.0;
-	Result.xyz *= Result.xyz;
+	result.xyz /= result.xyz + 1.0;
+	result.xyz *= result.xyz;
+
+	return result;
 }

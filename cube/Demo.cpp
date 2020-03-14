@@ -25,7 +25,7 @@ enum DescSetIndex : uint8_t
 	NUM_DESC_SET
 };
 
-static char *g_txFiles[] = { "lunarg.pfm" };
+static char *g_txFiles[] = { "lunarg.ppm" };
 
 static const float g_vertex_buffer_data[] =
 {
